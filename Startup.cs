@@ -16,7 +16,8 @@ namespace Web
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
-
+            
+            // Use Web API dependency resolver to create an instance of SignalR hub
             GlobalHost.DependencyResolver.Register(
                 typeof(NotificationHub),
                 () => GlobalConfiguration.Configuration.DependencyResolver.GetService(typeof(NotificationHub))
